@@ -1,12 +1,17 @@
+<<<<<<< HEAD
 from flask import Flask, render_template, request, redirect, url_for, session, flash, Response, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
+=======
+from flask import Flask, render_template, request, redirect, url_for, session, flash
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
 from functools import wraps
 
 import json
 import folium
 
 app = Flask(__name__)
+<<<<<<< HEAD
 app.secret_key = 'tu_clave_secreta_muy_segura'  # Cambia esto en producción
 
 app.config['SQLALCHEMY_DATABASE_URI'] = \
@@ -36,6 +41,20 @@ class Productos(db.Model):
     stock_minimo = db.Column(db.Integer, nullable=False)
     existencia = db.Column(db.Integer, nullable=False)
 
+=======
+app.secret_key = 'tu_clave_secreta_muy_segura' # Cambia esto en producción
+
+# Simulación de una base de datos de usuarios
+users = {
+    'manager1': {'password': 'manager1pass', 'role': 'admin'},
+    'manager2': {'password': 'manager2pass', 'role': 'admin'},
+    'driver1': {'password': 'driver1pass', 'role': 'driver'},
+    'driver2': {'password': 'driver2pass', 'role': 'driver'},
+    'seller1': {'password': 'seller1pass', 'role': 'seller'},
+    'seller2': {'password': 'seller2pass', 'role': 'seller'},
+    'seller3': {'password': 'seller3pass', 'role': 'seller'}
+}
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
 
 # Base de datos simulada de clientes
 CLIENTES_DB = {
@@ -50,12 +69,20 @@ CLIENTES_DB = {
             {"id": 1, "nombre": "Laptop Dell", "cantidad": 2, "precio": 1200.00},
             {"id": 2, "nombre": "Mouse Inalámbrico", "cantidad": 5, "precio": 25.00},
             {"id": 3, "nombre": "Teclado Mecánico", "cantidad": 3, "precio": 80.00},
+<<<<<<< HEAD
             {"id": 4, "nombre": "Monitor 24\"", "cantidad": 2, "precio": 300.00},
+=======
+            {"id": 4, "nombre": "Monitor 24\"", "cantidad": 2, "precio": 200.00},
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
             {"id": 5, "nombre": "Webcam HD", "cantidad": 1, "precio": 150.00}
         ]
     },
     "CLI002": {
+<<<<<<< HEAD
         "codigo": "CLID002",
+=======
+        "codigo": "CLI002",
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
         "cliente": "María García",
         "fecha": "2024-06-02",
         "direccion": "Av. Los Sauces # 345",
@@ -86,7 +113,10 @@ CLIENTES_DB = {
     }
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
 # Base de datos simulada de pedidos
 PEDIDOS_DB = {
     "PED001": {
@@ -101,7 +131,11 @@ PEDIDOS_DB = {
             {"id": 1, "nombre": "Laptop Dell", "cantidad": 2, "precio": 1200.00},
             {"id": 2, "nombre": "Mouse Inalámbrico", "cantidad": 5, "precio": 25.00},
             {"id": 3, "nombre": "Teclado Mecánico", "cantidad": 3, "precio": 80.00},
+<<<<<<< HEAD
             {"id": 4, "nombre": "Monitor 24\"", "cantidad": 2, "precio": 300.00},
+=======
+            {"id": 4, "nombre": "Monitor 24\"", "cantidad": 2, "precio": 200.00},
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
             {"id": 5, "nombre": "Webcam HD", "cantidad": 1, "precio": 150.00}
         ]
     },
@@ -140,8 +174,11 @@ PEDIDOS_DB = {
 }
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -151,6 +188,10 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
 @app.route('/')
 def home():
     return render_template('home.html')
@@ -161,6 +202,7 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+<<<<<<< HEAD
 
         # --- CAMBIO AQUÍ ---
         # En lugar de usar .get(username), usamos filter_by.
@@ -186,6 +228,19 @@ def login():
 
     return render_template('login.html')
 
+=======
+        if username in users and users[username]['password'] == password:
+            session['username'] = username
+            session['role'] = users[username]['role']
+            flash('Bienvenido, {}'.format(username), 'success')
+            return redirect(url_for('dashboard'))
+        else:
+            flash('Usuario o contraseña incorrectos', 'error')
+            return render_template('login.html')
+    return render_template('login.html')
+
+
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
 @app.route('/logout')
 def logout():
     session.pop('username', None)
@@ -193,13 +248,20 @@ def logout():
     flash('Has cerrado sesión', 'info')
     return redirect(url_for('home'))
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
 @app.route('/dashboard')
 @login_required
 def dashboard():
     return render_template('dashboard.html')
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
 @app.route('/ver_mapa')
 def ver_mapa():
     if 'username' not in session or session['username'] == None:
@@ -214,7 +276,11 @@ def ver_mapa():
             'nombre': 'Doña Filomena',
             'contacto': 'Filomena Delgado',
             'direccion': 'Calle La Tablada #4533',
+<<<<<<< HEAD
             'telefono': '77788899',
+=======
+            'telefono': '77788909',
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
             'pedido': '1001',
             'foto': 'tienda_barrio.jpg',
             'ubicacion': [-17.3935, -66.1570]
@@ -223,7 +289,11 @@ def ver_mapa():
             'nombre': 'Abarrotes El Carmen',
             'contacto': 'Carmen Rojas',
             'direccion': 'Av. Blanco Galindo Km 2',
+<<<<<<< HEAD
             'telefono': '76543210',
+=======
+            'telefono': '77543210',
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
             'pedido': '1002',
             'foto': 'tienda_carmen.jpg',
             'ubicacion': [-17.3850, -66.1700]
@@ -233,16 +303,26 @@ def ver_mapa():
             'contacto': 'Juan Mamani',
             'direccion': 'Av. América Este #345',
             'telefono': '70707070',
+<<<<<<< HEAD
             'pedido': '1002',
+=======
+            'pedido': '1003',
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
             'foto': 'tienda_andes.jpg',
             'ubicacion': [-17.3980, -66.1420]
         },
         {
             'nombre': 'Tienda Don Pedro',
             'contacto': 'Pedro Flores',
+<<<<<<< HEAD
             'direccion': 'Calle Jordán #1234',
             'telefono': '71234567',
             'pedido': '1003',
+=======
+            'direccion': 'Calle Sucre #1234',
+            'telefono': '71234567',
+            'pedido': '1004',
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
             'foto': 'tienda_pedro.jpg',
             'ubicacion': [-17.4050, -66.1610]
         },
@@ -277,6 +357,7 @@ def ver_mapa():
 
     # Agregar marcadores para cada tienda
     for tienda in tiendas:
+<<<<<<< HEAD
         foto_url = url_for('static', filename='fotos/tienda_barrio.jpg')
 
         popup_content = f"""<table border=1 class="table table-success table-striped">
@@ -288,36 +369,71 @@ def ver_mapa():
             <tr><td>Pedido:</td><td>{ tienda['pedido'] }</td></tr>
             <!--tr><td colspan="2"><center><a class="btn btn-primary" href="/pedido" style="color: white;">Ver Pedido</a></center></td></tr-->
             </table>"""
+=======
+        foto_url = url_for('static', filename=f"fotos/{tienda['foto']}")
+        popup_content = f"""
+        <table border="1" class="table table-success table-striped">
+            <tr><td colspan="2"><img src="{foto_url}" width="250" height="200"></td></tr>
+            <tr><td><b>Tienda:</b></td><td>{tienda['nombre']}</td></tr>
+            <tr><td><b>Contacto:</b></td><td>{tienda['contacto']}</td></tr>
+            <tr><td><b>Dirección:</b></td><td>{tienda['direccion']}</td></tr>
+            <tr><td><b>Teléfono:</b></td><td>{tienda['telefono']}</td></tr>
+            <tr><td><b>Pedido:</b></td><td>{tienda['pedido']}</td></tr>
+            </table>
+        """
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
 
         folium.Marker(
             location=tienda['ubicacion'],
             popup=folium.Popup(popup_content, max_width=300),
+<<<<<<< HEAD
             tooltip=f'Tienda: {tienda["nombre"]}',
+=======
+            tooltip=f"Tienda: {tienda['nombre']}",
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
             icon=folium.Icon(color='blue', icon='shopping-cart', prefix='fa')
         ).add_to(m)
 
     # Guardar el mapa en un archivo HTML
+<<<<<<< HEAD
     path='/home/GabrielCes/mysite/templates/mapa.html'
     m.save(path)
     mapa_html = m._repr_html_()
 
     # Renderizar la plantilla HTML
     return render_template('mapa.html', m=mapa_html)
+=======
+    #path = 'home/GabrielCes/mysite/static/mapa_cbb.html'
+    #m.save(path)
+    mapa_html = m._repr_html_()
+
+    # Renderizar la plantilla HTML
+    return render_template('mapa.html', mapa=mapa_html)
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
 
 
 @app.route('/pedido')
 def pedido():
+<<<<<<< HEAD
     if 'username' not in session or session['role'] != 'driver':    ## == None:
         return redirect(url_for('login'))
     return render_template("pedido.html")
+=======
+    if 'username' not in session or session['username'] == None:
+        return redirect(url_for('login'))
+    return render_template('pedido.html')
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
 
 
 @app.route('/buscar_pedido', methods=['GET', 'POST'])
 def buscar_pedido():
+<<<<<<< HEAD
     if 'username' not in session or session['role'] != 'driver':
         return redirect(url_for('login'))
 
 
+=======
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
     pedido = None
     error = None
     success = None
@@ -331,16 +447,29 @@ def buscar_pedido():
         elif numero_pedido in PEDIDOS_DB:
             pedido = PEDIDOS_DB[numero_pedido]
             # Calcular total
+<<<<<<< HEAD
             total = sum(art['cantidad'] * art['precio'] for art in pedido['articulos'])
+=======
+            total = sum([art['cantidad'] * art['precio'] for art in pedido['articulos']])
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
         else:
             error = f"El pedido '{numero_pedido}' no existe en el sistema."
 
     return render_template('pedido.html',
+<<<<<<< HEAD
                                 pedido=pedido,
                                 error=error,
                                 success=success,
                                 total=total,
                                 pedidos_ejemplo=True)
+=======
+                           pedido=pedido,
+                           error=error,
+                           success=success,
+                           total=total,
+                           pedidos_ejemplo=True)
+
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
 
 @app.route('/actualizar_pedido', methods=['POST'])
 def actualizar_pedido():
@@ -348,14 +477,24 @@ def actualizar_pedido():
 
     if numero_pedido not in PEDIDOS_DB:
         return render_template('pedido.html',
+<<<<<<< HEAD
                                     error="Pedido no encontrado.")
 
     # Actualizar artículos
+=======
+                           error=f"Pedido no encontrado.")
+
+    # Actualizar articulos
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
     pedido = PEDIDOS_DB[numero_pedido]
 
     try:
         for articulo in pedido['articulos']:
+<<<<<<< HEAD
             articulo_id = articulo['id']
+=======
+            articulo_id = str(articulo['id'])
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
             articulo['nombre'] = request.form.get(f'nombre_{articulo_id}', '').strip()
             articulo['cantidad'] = int(request.form.get(f'cantidad_{articulo_id}', 0))
             articulo['precio'] = float(request.form.get(f'precio_{articulo_id}', 0))
@@ -369,6 +508,7 @@ def actualizar_pedido():
                 raise ValueError("El precio no puede ser negativo.")
 
         # Calcular nuevo total
+<<<<<<< HEAD
         total = sum(art['cantidad'] * art['precio'] for art in pedido['articulos'])
 
         return render_template('pedido.html',
@@ -381,14 +521,36 @@ def actualizar_pedido():
                                     pedido=pedido,
                                     error=f"Error al actualizar: {str(e)}",
                                     total=sum(art['cantidad'] * art['precio'] for art in pedido['articulos']))
+=======
+        total = sum([art['cantidad'] * art['precio'] for art in pedido['articulos']])
+
+        return render_template('pedido.html',
+                               pedido=pedido,
+                               success="Pedido actualizado correctamente.",
+                               total=total)
+
+    except (ValueError, TypeError) as e:
+        return render_template('pedido.html',
+                               pedido=pedido,
+                               error=f"Error al actualizar: {str(e)}",
+                               total=sum([art['cantidad'] * art['precio'] for art in
+                               pedido['articulos']]))
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
 
 
 @app.route('/preventa')
 def preventa():
+<<<<<<< HEAD
     if 'username' not in session or session['role'] != 'seller':
         return redirect(url_for('login'))
     productos = Productos.query.all()
     return render_template("preventa.html", productos = productos)
+=======
+    if 'username' not in session or session['username'] == None:
+        return redirect(url_for('login'))
+    return render_template('preventa.html')
+
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
 
 @app.route('/buscar_cliente', methods=['GET', 'POST'])
 def buscar_cliente():
@@ -397,8 +559,11 @@ def buscar_cliente():
     success = None
     total = 0
 
+<<<<<<< HEAD
     productos = Productos.query.all()
 
+=======
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
     if request.method == 'POST':
         codigo_cliente = request.form.get('codigo_cliente', '').strip().upper()
 
@@ -407,22 +572,36 @@ def buscar_cliente():
         elif codigo_cliente in CLIENTES_DB:
             codigo = CLIENTES_DB[codigo_cliente]
             # Calcular total
+<<<<<<< HEAD
             ####total = sum(art['cantidad'] * art['precio'] for art in pedido['articulos'])
+=======
+            total = sum([art['cantidad'] * art['precio'] for art in codigo['articulos']])
+            ###total = sum([art['cantidad'] * art['precio'] for art in pedido['articulos']])
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
         else:
             error = f"El cliente '{codigo_cliente}' no existe en el sistema."
 
     return render_template('preventa.html',
+<<<<<<< HEAD
                                 codigo=codigo,
                                 error=error,
                                 success=success,
                                 total=total,
                                 clientes_ejemplo=True,
                                 productos = productos)
+=======
+                           codigo=codigo,
+                           error=error,
+                           success=success,
+                           total=total,
+                           clientes_ejemplo=True)
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
 
 
 @app.route('/grabar_pedido', methods=['POST'])
 def grabar_pedido():
     ##numero_pedido = request.form.get('numero_pedido')
+<<<<<<< HEAD
     pass
     #return "Grabando Pedido ..."
 
@@ -480,3 +659,6 @@ def eliminar_usuario(id):
     db.session.commit()
     usuarios = Usuarios.query.all()
     return render_template('usuarios.html', usuarios=usuarios)
+=======
+    return "Grabando Pedido ..."
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc

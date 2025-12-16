@@ -3,10 +3,19 @@
 {% block title %}Inicio{% endblock %}
 
 {% block content %}
+<<<<<<< HEAD
     <h1>Bienvenido a la página de inicio</h1>
     {% if 'username' in session %}
         <p>Has iniciado sesión como {{ session['username'] }} ({{ session['role'] }}).</p>
     {% else %}
         <p>No has iniciado sesión.</p>
     {% endif %}
+=======
+<h1>Bienvenido a la página de inicio</h1>
+{% if 'username' in session %}
+<p>Has iniciado sesión como {{ session['username'] }} ({{ session['role'] }}).</p>
+{% else %}
+<p>No has iniciado sesión.</p>
+{% endif %}
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
 {% endblock %}

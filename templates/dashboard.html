@@ -3,6 +3,7 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block content %}
+<<<<<<< HEAD
     <h1>Dashboard</h1>
     <p>Bienvenido a tu dashboard, {{ session['username'] }}!</p>
     
@@ -28,4 +29,31 @@
             <li>Gestionar suscripciones</li>
         </ul>
     {% endif %}
+=======
+<h1>Dashboard</h1>
+<p>Bienvenido a tu dashboard, {{ session['username'] }}</p>
+
+{% if session['role'] == 'admin' %}
+    <h2>Panel de Administracion</h2>
+    <ul>
+        <li>Gestionar usuarios</li>
+        <li>Ver estadisticas del sistema</li>
+        <li>Configurar parametros globales</li>
+    </ul>
+{% elif session['role'] == 'editor' %}
+    <h2>Panel de Editor</h2>
+    <ul>
+        <li>Crear nuevo articulo</li>
+        <li>Editar articulos existentes</li>
+        <li>Moderar comentarios</li>
+    </ul>
+{% else %}
+    <h2>Panel de Usuario</h2>
+    <ul>
+        <li>Ver tus publicaciones</li>
+        <li>Actualizar perfil</li>
+        <li>Gestionar suscripciones</li>
+    </ul>
+{% endif %}
+>>>>>>> e5c0116451e0e9960fad75af64ecc56d55ba01bc
 {% endblock %}
