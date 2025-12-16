@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_1254a1487b94a4e1183ad44e1f5802e3 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_1254a1487b94a4e1183ad44e1f5802e3" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_1254a1487b94a4e1183ad44e1f5802e3 = L.map(
+                "map_1254a1487b94a4e1183ad44e1f5802e3",
+                {
+                    center: [-17.3935, -66.157],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 15,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f1dea1fbcfdd50c1b9c5537d1cbb7ee6 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_f1dea1fbcfdd50c1b9c5537d1cbb7ee6.addTo(map_1254a1487b94a4e1183ad44e1f5802e3);
+        
+    
+            var marker_ff59279c835b298da155664729f53800 = L.marker(
+                [-17.3935, -66.157],
+                {
+}
+            ).addTo(map_1254a1487b94a4e1183ad44e1f5802e3);
+        
+    
+            var icon_cf05338e21f8bc08b5f4faaef0c93c4f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "shopping-cart",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_efd923e11f911743f9366b1621f60064 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_37020376a7919d147da8afa6ee0474ba = $(`<div id="html_37020376a7919d147da8afa6ee0474ba" style="width: 100.0%; height: 100.0%;"><table border=1 class="table table-success table-striped">             <tr><td colspan="2"><img src='/static/fotos/tienda_barrio.jpg' width='250' height='200'></td></tr>             <tr><td>Tienda:</td><td>Doña Filomena</td></tr>             <tr><td>Contacto:</td><td>Filomena Delgado</td></tr>             <tr><td>Dirección:</td><td>Calle La Tablada #4533</td></tr>             <tr><td>Teléfono:</td><td>77788899</td></tr>             <tr><td>Pedido:</td><td>1001</td></tr>             <!--tr><td colspan="2"><center><a class="btn btn-primary" href="/pedido" style="color: white;">Ver Pedido</a></center></td></tr-->             </table></div>`)[0];
+                popup_efd923e11f911743f9366b1621f60064.setContent(html_37020376a7919d147da8afa6ee0474ba);
+            
+        
+
+        marker_ff59279c835b298da155664729f53800.bindPopup(popup_efd923e11f911743f9366b1621f60064)
+        ;
+
+        
+    
+    
+            marker_ff59279c835b298da155664729f53800.bindTooltip(
+                `<div>
+                     Tienda: Doña Filomena
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ff59279c835b298da155664729f53800.setIcon(icon_cf05338e21f8bc08b5f4faaef0c93c4f);
+            
+    
+            var marker_c920dd2a14be0668586c729ba9a2b222 = L.marker(
+                [-17.385, -66.17],
+                {
+}
+            ).addTo(map_1254a1487b94a4e1183ad44e1f5802e3);
+        
+    
+            var icon_a3706cf24422f011d308cf754503b2d8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "shopping-cart",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_248c0108513627b829c6c358518de781 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_49481bc7906a68e626397150c6fedb72 = $(`<div id="html_49481bc7906a68e626397150c6fedb72" style="width: 100.0%; height: 100.0%;"><table border=1 class="table table-success table-striped">             <tr><td colspan="2"><img src='/static/fotos/tienda_barrio.jpg' width='250' height='200'></td></tr>             <tr><td>Tienda:</td><td>Abarrotes El Carmen</td></tr>             <tr><td>Contacto:</td><td>Carmen Rojas</td></tr>             <tr><td>Dirección:</td><td>Av. Blanco Galindo Km 2</td></tr>             <tr><td>Teléfono:</td><td>76543210</td></tr>             <tr><td>Pedido:</td><td>1002</td></tr>             <!--tr><td colspan="2"><center><a class="btn btn-primary" href="/pedido" style="color: white;">Ver Pedido</a></center></td></tr-->             </table></div>`)[0];
+                popup_248c0108513627b829c6c358518de781.setContent(html_49481bc7906a68e626397150c6fedb72);
+            
+        
+
+        marker_c920dd2a14be0668586c729ba9a2b222.bindPopup(popup_248c0108513627b829c6c358518de781)
+        ;
+
+        
+    
+    
+            marker_c920dd2a14be0668586c729ba9a2b222.bindTooltip(
+                `<div>
+                     Tienda: Abarrotes El Carmen
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c920dd2a14be0668586c729ba9a2b222.setIcon(icon_a3706cf24422f011d308cf754503b2d8);
+            
+    
+            var marker_1b602b96dc60510145c3f006dedb8306 = L.marker(
+                [-17.398, -66.142],
+                {
+}
+            ).addTo(map_1254a1487b94a4e1183ad44e1f5802e3);
+        
+    
+            var icon_5384f9d94ca95e0798810109ca6099cb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "shopping-cart",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5e45ac9f72d775c4b54c61c031f28044 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9aad880c2d79e8f9bc52aa72bee233e7 = $(`<div id="html_9aad880c2d79e8f9bc52aa72bee233e7" style="width: 100.0%; height: 100.0%;"><table border=1 class="table table-success table-striped">             <tr><td colspan="2"><img src='/static/fotos/tienda_barrio.jpg' width='250' height='200'></td></tr>             <tr><td>Tienda:</td><td>Minimarket Los Andes</td></tr>             <tr><td>Contacto:</td><td>Juan Mamani</td></tr>             <tr><td>Dirección:</td><td>Av. América Este #345</td></tr>             <tr><td>Teléfono:</td><td>70707070</td></tr>             <tr><td>Pedido:</td><td>1002</td></tr>             <!--tr><td colspan="2"><center><a class="btn btn-primary" href="/pedido" style="color: white;">Ver Pedido</a></center></td></tr-->             </table></div>`)[0];
+                popup_5e45ac9f72d775c4b54c61c031f28044.setContent(html_9aad880c2d79e8f9bc52aa72bee233e7);
+            
+        
+
+        marker_1b602b96dc60510145c3f006dedb8306.bindPopup(popup_5e45ac9f72d775c4b54c61c031f28044)
+        ;
+
+        
+    
+    
+            marker_1b602b96dc60510145c3f006dedb8306.bindTooltip(
+                `<div>
+                     Tienda: Minimarket Los Andes
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1b602b96dc60510145c3f006dedb8306.setIcon(icon_5384f9d94ca95e0798810109ca6099cb);
+            
+    
+            var marker_5771dfe0a44dd89f56e0886807838415 = L.marker(
+                [-17.405, -66.161],
+                {
+}
+            ).addTo(map_1254a1487b94a4e1183ad44e1f5802e3);
+        
+    
+            var icon_d51fe46e2e9212d794f8a79d41600fd8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "shopping-cart",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_22c49dcaea61d491fe74a1bb89dbf396 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a61489bcae8cd11e0aa1e87ae3d35a45 = $(`<div id="html_a61489bcae8cd11e0aa1e87ae3d35a45" style="width: 100.0%; height: 100.0%;"><table border=1 class="table table-success table-striped">             <tr><td colspan="2"><img src='/static/fotos/tienda_barrio.jpg' width='250' height='200'></td></tr>             <tr><td>Tienda:</td><td>Tienda Don Pedro</td></tr>             <tr><td>Contacto:</td><td>Pedro Flores</td></tr>             <tr><td>Dirección:</td><td>Calle Jordán #1234</td></tr>             <tr><td>Teléfono:</td><td>71234567</td></tr>             <tr><td>Pedido:</td><td>1003</td></tr>             <!--tr><td colspan="2"><center><a class="btn btn-primary" href="/pedido" style="color: white;">Ver Pedido</a></center></td></tr-->             </table></div>`)[0];
+                popup_22c49dcaea61d491fe74a1bb89dbf396.setContent(html_a61489bcae8cd11e0aa1e87ae3d35a45);
+            
+        
+
+        marker_5771dfe0a44dd89f56e0886807838415.bindPopup(popup_22c49dcaea61d491fe74a1bb89dbf396)
+        ;
+
+        
+    
+    
+            marker_5771dfe0a44dd89f56e0886807838415.bindTooltip(
+                `<div>
+                     Tienda: Tienda Don Pedro
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5771dfe0a44dd89f56e0886807838415.setIcon(icon_d51fe46e2e9212d794f8a79d41600fd8);
+            
+    
+            var marker_91708ded463dd201d959d26948eb05a5 = L.marker(
+                [-17.3925, -66.148],
+                {
+}
+            ).addTo(map_1254a1487b94a4e1183ad44e1f5802e3);
+        
+    
+            var icon_d18c457e58867bddd0d917f0032941e6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "shopping-cart",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8a46b853340ee7911f17cff8f4909725 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ef41a717028d439bdf1e7fddc6d7808a = $(`<div id="html_ef41a717028d439bdf1e7fddc6d7808a" style="width: 100.0%; height: 100.0%;"><table border=1 class="table table-success table-striped">             <tr><td colspan="2"><img src='/static/fotos/tienda_barrio.jpg' width='250' height='200'></td></tr>             <tr><td>Tienda:</td><td>Mercadito Central</td></tr>             <tr><td>Contacto:</td><td>María Gutiérrez</td></tr>             <tr><td>Dirección:</td><td>Av. Ayacucho #887</td></tr>             <tr><td>Teléfono:</td><td>78901234</td></tr>             <tr><td>Pedido:</td><td>1004</td></tr>             <!--tr><td colspan="2"><center><a class="btn btn-primary" href="/pedido" style="color: white;">Ver Pedido</a></center></td></tr-->             </table></div>`)[0];
+                popup_8a46b853340ee7911f17cff8f4909725.setContent(html_ef41a717028d439bdf1e7fddc6d7808a);
+            
+        
+
+        marker_91708ded463dd201d959d26948eb05a5.bindPopup(popup_8a46b853340ee7911f17cff8f4909725)
+        ;
+
+        
+    
+    
+            marker_91708ded463dd201d959d26948eb05a5.bindTooltip(
+                `<div>
+                     Tienda: Mercadito Central
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_91708ded463dd201d959d26948eb05a5.setIcon(icon_d18c457e58867bddd0d917f0032941e6);
+            
+    
+            var marker_f5684e1a076d581003a8eccb0a0fb901 = L.marker(
+                [-17.388, -66.155],
+                {
+}
+            ).addTo(map_1254a1487b94a4e1183ad44e1f5802e3);
+        
+    
+            var icon_102b4ad8b972ec977ecf83dcea985c27 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "shopping-cart",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_aff33130dd2b762ccfde6e63a53f1107 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8c2374876fe5a9f8aeb3b3dbb8fb5aa3 = $(`<div id="html_8c2374876fe5a9f8aeb3b3dbb8fb5aa3" style="width: 100.0%; height: 100.0%;"><table border=1 class="table table-success table-striped">             <tr><td colspan="2"><img src='/static/fotos/tienda_barrio.jpg' width='250' height='200'></td></tr>             <tr><td>Tienda:</td><td>Almacén El Sol</td></tr>             <tr><td>Contacto:</td><td>Roberto Mendoza</td></tr>             <tr><td>Dirección:</td><td>Av. Heroínas #765</td></tr>             <tr><td>Teléfono:</td><td>76767676</td></tr>             <tr><td>Pedido:</td><td>1005</td></tr>             <!--tr><td colspan="2"><center><a class="btn btn-primary" href="/pedido" style="color: white;">Ver Pedido</a></center></td></tr-->             </table></div>`)[0];
+                popup_aff33130dd2b762ccfde6e63a53f1107.setContent(html_8c2374876fe5a9f8aeb3b3dbb8fb5aa3);
+            
+        
+
+        marker_f5684e1a076d581003a8eccb0a0fb901.bindPopup(popup_aff33130dd2b762ccfde6e63a53f1107)
+        ;
+
+        
+    
+    
+            marker_f5684e1a076d581003a8eccb0a0fb901.bindTooltip(
+                `<div>
+                     Tienda: Almacén El Sol
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f5684e1a076d581003a8eccb0a0fb901.setIcon(icon_102b4ad8b972ec977ecf83dcea985c27);
+            
+    
+            var marker_699652e9a1c642e2bea4d747b224a850 = L.marker(
+                [-17.401, -66.152],
+                {
+}
+            ).addTo(map_1254a1487b94a4e1183ad44e1f5802e3);
+        
+    
+            var icon_6369f7ccd0a56c53a7e5e2a51fbf09dd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "shopping-cart",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_af349db5f40bf458208c676245a14a52 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c43510895b7f30741f4e41038d68014c = $(`<div id="html_c43510895b7f30741f4e41038d68014c" style="width: 100.0%; height: 100.0%;"><table border=1 class="table table-success table-striped">             <tr><td colspan="2"><img src='/static/fotos/tienda_barrio.jpg' width='250' height='200'></td></tr>             <tr><td>Tienda:</td><td>Tienda Doña Rosa</td></tr>             <tr><td>Contacto:</td><td>Rosa Méndez</td></tr>             <tr><td>Dirección:</td><td>Calle Hamiraya #432</td></tr>             <tr><td>Teléfono:</td><td>79876543</td></tr>             <tr><td>Pedido:</td><td>1006</td></tr>             <!--tr><td colspan="2"><center><a class="btn btn-primary" href="/pedido" style="color: white;">Ver Pedido</a></center></td></tr-->             </table></div>`)[0];
+                popup_af349db5f40bf458208c676245a14a52.setContent(html_c43510895b7f30741f4e41038d68014c);
+            
+        
+
+        marker_699652e9a1c642e2bea4d747b224a850.bindPopup(popup_af349db5f40bf458208c676245a14a52)
+        ;
+
+        
+    
+    
+            marker_699652e9a1c642e2bea4d747b224a850.bindTooltip(
+                `<div>
+                     Tienda: Tienda Doña Rosa
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_699652e9a1c642e2bea4d747b224a850.setIcon(icon_6369f7ccd0a56c53a7e5e2a51fbf09dd);
+            
+</script>
+</html>
